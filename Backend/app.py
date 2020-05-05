@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request, jsonify
 import requests
 
@@ -13,10 +14,13 @@ def demo():
             "username": 'demo0'
         })
 
-@app.route('/test', methods=['POST'])
-def test():
-    if request.method == 'POST':
-        r = request.post
+
+@app.route('/', methods=['GET'])
+def demo1():
+    r = requests.post("http://127.0.0.1:5555/", json.dumps({"1": "2"}))
+    return jsonify({
+        "demo1": 'res test'
+    })
 
 if __name__ == '__main__':
     app.run()
