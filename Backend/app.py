@@ -18,9 +18,7 @@ def demo():
 @app.route('/', methods=['GET'])
 def demo1():
     r = requests.post("http://127.0.0.1:5555/", json.dumps({"1": "2"}))
-    return jsonify({
-        "demo1": 'res test'
-    })
+    print(r.json())
 
 if __name__ == '__main__':
     app.run()
