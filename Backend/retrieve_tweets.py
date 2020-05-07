@@ -3,8 +3,8 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 
-# Enter Twitter API Keys
 
+# Enter Twitter API Keys
 
 
 # Create the class that will handle the tweet stream
@@ -25,6 +25,6 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, l)
 
-    #TODO: tracklist is a list containing the words or hashtags you want to look for
+    # TODO: tracklist is a list containing the words or hashtags you want to look for
     tracklist = None
     stream.filter(track=tracklist)
