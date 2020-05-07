@@ -5,7 +5,10 @@ from tweepy import Stream
 
 
 # Enter Twitter API Keys
-
+#consumer_key=
+#consumer_secret=
+#access_token=
+#access_token_secret=
 
 # Create the class that will handle the tweet stream
 class StdOutListener(StreamListener):
@@ -19,7 +22,7 @@ class StdOutListener(StreamListener):
 
 
 if __name__ == '__main__':
-    # Handle Twitter authetification and the connection to Twitter Streaming API
+    # Handle Twitter authentication and the connection to Twitter Streaming API
     l = StdOutListener()
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
