@@ -15,10 +15,10 @@
     install_recommends: no
     update_cache: yes
 
-# - name: Reboot the machine
-#   become: yes
-#   reboot:
-#     reboot_timeout: 600
+- name: Reboot the machine
+  become: yes
+  reboot:
+    reboot_timeout: 600
 
 - name: Update apt-get
   become: yes
@@ -26,21 +26,23 @@
     state: latest
     update_cache: yes
 
-# - name: Create a file if it does not exist
-#   file:
-#     path: /http-proxy.config
-#     state: file
-#     mode: '0755'
-
-- name: Create File
-  win_file:
-    path: /http-proxy.config
+- name: Create a file if it does not exist
+  become: yes
+  file:
+    path: /http-proxy.conf
     state: touch
 
+# - name: Create File
+#   become: yes
+#   win_file:
+#     path: /http-proxy.config
+#     state: file
+
 - name: Create a file called http-proxy.conf
+  become: yes
   blockinfile:
     create: yes
-    path: /http-proxy.config
+    path: /http-proxy.conf
     block: |
       [Service]
       Environment="HTTP_PROXY=http://wwwproxy.unimelb.edu.au:8000/"
@@ -48,22 +50,35 @@
       Environment="no_proxy=localhost,127.0.0.1,localaddress,172.16.0.0/12,.melbourne.rc.nectar.org.au,.storage.unimelb.edu.au,.cloud.unimelb.edu.au"
 
 - name: Create directory
+  become: yes
   file:
     path: /etc/systemd/system/docker.service.d
     state: directory
     mode: '0755'
 
 - name: Copy the http-proxy.conf to /etc/systemd/system/docker.service.d/
+  become: yes
   copy:
     src: /http-proxy.conf
     dest: /etc/systemd/system/docker.service.d/http-proxy.conf
     remote_src: yes
 
 - name: Flush the changes and restart the Docker service
+  become: yes
   systemd:
     daemon_reload: yes
-    state: restarted
-    name: docker
+    # state: restarted
+    # name: docker.service
+
+# - name: Restart the Docker Service
+#   become: yes
+#   systemd:
+#     state: restarted
+#     name: 'docker'
+- name: Restart the Docker service
+  command: systemctl restart docker
+  become: yes
+  become_user: root
 
 - name: Add Docker apt repository key
   tags: 'docker'
@@ -77,6 +92,7 @@
   become: yes
   apt_repository:
     repo: "deb https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
+    # repo: "deb https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
     mode: '644'
     update_cache: yes
     state: present
