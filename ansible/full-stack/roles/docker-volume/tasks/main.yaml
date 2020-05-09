@@ -1,0 +1,154 @@
+---
+- name: Install dependencies
+  tags: 'volumes_mount'
+  become: yes
+  apt:
+    name: ['xfsprogs']
+    state: latest
+    install_recommends: no
+    update_cache: yes
+
+- name: Make file system
+  tags: 'volumes_mount'
+  become: yes
+  filesystem:
+    fstype: xfs
+    dev: "{{ item.device }}"
+  when: item.device is defined
+  with_items:
+    - "{{ volumes_mount }}"
+
+- name: Checking folders
+  tags: 'volumes_mount'
+  become: yes
+  stat:
+    path: "{{ item.mountpoint }}"
+  register: directory_stats
+  with_items:
+    - "{{ volumes_mount }}"
+
+- name: Create directory
+  tags: 'volumes_mount'
+  become: yes
+  file:
+    path: "{{ item.item.mountpoint }}"
+    recurse: yes
+    state: directory
+  when: item.stat.exists == false
+  with_items:
+    - "{{ directory_stats.results }}"
+
+- name: Mount device
+  tags: 'volumes_mount'
+  become: yes
+  mount:
+    path: "{{ item.mountpoint }}"
+    src: "{{ item.device }}"
+    fstype: xfs
+    state: mounted
+  when: item.device is defined
+  with_items:
+    - "{{ volumes_mount }}"
+
+# ---
+# # - name: Install common dependencies
+# #   tags: always
+# #   become: yes
+# #   apt:
+# #     name: ['git', 'python3-pip', 'python3-setuptools', 'software-properties-common', 'unzip', 'vim']
+# #     state: latest
+# #     install_recommends: no
+# #     update_cache: yes
+
+# # - name: Update pip
+# #   tags: always
+# #   become: yes
+# #   pip:
+# #     name: ['pip']
+# #     state: latest
+    
+# # - name: Install dependencies
+# #   tags: 'volumes_mount'
+# #   become: yes
+# #   apt:
+# #     name: ['xfsprogs']
+# #     state: latest
+# #     install_recommends: no
+# #     update_cache: yes
+
+# - name: Gather facts of remote host
+#   setup:
+#     gather_subset: all
+
+# - name: Update apt
+#   become: true
+#   apt:
+#     upgrade: yes
+#     update_cache: yes
+
+# - name: Install common dependencies
+#   tags: always
+#   become: yes
+#   apt:
+#     name: ['apt-transport-https', 'build-essential', 'ca-certificates', 'curl', 'git', 'python3-dev', 'python3-pip', 'python3-setuptools', 'software-properties-common', 'unzip', 'vim']
+#     state: latest
+#     install_recommends: no
+#     update_cache: yes
+
+# - name: Update pip
+#   tags: always
+#   become: yes
+#   pip:
+#     name: ['pip']
+#     state: latest
+
+# - name: Install dependencies
+#   tags: 'volumes'
+#   become: yes
+#   apt:
+#     name: ['xfsprogs']
+#     state: latest
+#     install_recommends: no
+#     update_cache: yes
+
+# - name: Create a xfs filesystem on /dev/vdb
+#   tags: 'volumes_mount'
+#   become: yes
+#   filesystem:
+#     fstype: xfs
+#     dev: "{{ item.device }}"
+#   when: item.device is defined
+#   with_items:
+#     - "{{ volumes_mount }}"
+
+# - name: Checking folders
+#   tags: 'volumes_mount'
+#   become: yes
+#   stat:
+#     path: "{{ item.mountpoint }}"
+#   register: directory_stats
+#   with_items:
+#     - "{{ volumes_mount }}"
+
+# - name: Create a new directory where to mount the volume
+#   tags: 'volumes_mount'
+#   become: yes
+#   file:
+#     path: "{{ item.item.mountpoint }}"
+#     recurse: yes
+#     state: directory
+#   when: item.stat.exists == false
+#   with_items:
+#     - "{{ directory_stats.results }}"
+
+# - name: Mount the volume that we created before
+#   tags: 'volumes_mount'
+#   become: yes
+#   mount:
+#     path: "{{ item.mountpoint }}"
+#     src: "{{ item.device }}"
+#     fstype: xfs
+#     state: mounted
+#   when: item.device is defined
+#   with_items:
+#     - "{{ volumes_mount }}"
