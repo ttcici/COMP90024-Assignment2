@@ -3,17 +3,16 @@
 # Last-update: 9/5/2020
 
 import couchdb
+import config
 
 
-# Connect CouchDB
+# Connect to CouchDB
 class DatabaseConnection:
     # TODO: set CouchDB url & database name
-    url = "172.26.0.0"
-    db_name = 'Databse name'
     server = None
 
     def __init__(self):
-        self.server = couchdb.Database(self.url)
+        self.server = couchdb.Database(config.database_url)
 
     def get_db(self):
-        return self.server[self.db_name]
+        return self.server[config.database_name]

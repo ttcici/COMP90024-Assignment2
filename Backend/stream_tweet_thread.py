@@ -1,30 +1,40 @@
 # Import the necessary methods from tweepy library
-from tweepy import OAuthHandler, StreamListener
+from tweepy import StreamListener
 from tweepy import Stream
-from tweepy import API
-import config
 from threading import Thread
+
+count = 0
 
 
 class get(Thread):
-    def __init__(self, auth):
+
+    def __init__(self, auth, query, couchdb, total_number):
         super().__init__()
-        self.listener = StdOutListener()
+        self.listener = StdOutListener(self.couchdb)
         self.auth = auth
+        self.query = query
+        self.couchdb = couchdb
+        self.total_number = total_number
 
     def run(self):
-        stream = Stream(self.auth, self.listener)
-        # TODO: tracklist is a list containing the words or hashtags you want to look for
-        tracklist = None
-        stream.filter(track=tracklist)
+        global count
+        while count < self.total_number:
+            stream = Stream(self.auth, self.listener)
+            stream.filter(track=self.query)
 
 
 # Create the class that will handle the tweet stream
 class StdOutListener(StreamListener):
+    def __init__(self, counchdb):
+        super().__init__()
+        self.couchdb = counchdb
 
     def on_data(self, data):
-        # TODO: save data to CouchDB
         print(data)
+        global count
+        count += 1
+        # TODO: save tweet to CouchDB
+        self.couchdb[''] = data
 
     def on_error(self, status):
         print(status)
