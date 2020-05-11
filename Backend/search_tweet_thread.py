@@ -19,5 +19,7 @@ class get(Thread):
             search_results = self.api.search(self.query, count=100)
             count += 100
             for tweet in search_results:
-                # TODO: save tweet to CouchDB
-                self.couchdb[''] = tweet
+                # Check duplicate
+                if self.couchdb.get(tweet['id_str']) is None:
+                    # Save tweet to CouchDB
+                    self.couchdb[tweet['id_str']] = tweet

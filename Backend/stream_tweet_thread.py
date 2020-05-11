@@ -30,11 +30,13 @@ class StdOutListener(StreamListener):
         self.couchdb = counchdb
 
     def on_data(self, data):
-        print(data)
-        global count
-        count += 1
-        # TODO: save tweet to CouchDB
-        self.couchdb[''] = data
+        # print(data)
+        # Check duplicate
+        if self.couchdb.get(data['id_str']) is None:
+            # Save tweet to CouchDB
+            global count
+            count += 1
+            self.couchdb[data['id_str']] = data
 
     def on_error(self, status):
         print(status)
