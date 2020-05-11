@@ -7,6 +7,6 @@ consumer_secret = "7KLLsiXLsR71arTnBwQNc14EDaE7UZrpsepINb4Q8UauLOjWb8"
 database_name = 'demo'
 database_url = '172.26.0.0'
 
-query = ['', '']
-search_number = 10000000
-stream_number = 10000000
+query = ['COVID', 'Trump']
+search_number = 5000000
+stream_number = 5000000
