@@ -18,10 +18,10 @@ class DatabaseConnection:
         return self.server[config.database_name]
 
 # Map Reduce
-class MapReduce:
-    def __init__(self):
-
-
-    def map(self):
-
-    def reduce(self):
+# class MapReduce:
+#     def __init__(self):
+#
+#
+#     def map(self):
+#
+#     def reduce(self):
