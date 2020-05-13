@@ -5,7 +5,6 @@
 
 
 from flask import Flask, jsonify
-import requests
 import utils
 import config
 
@@ -15,9 +14,6 @@ app = Flask(__name__)
 # Get doc from database by name
 @app.route('/<string:name>', methods=['GET'])
 def get_by_name(name):
-    # r = requests.post("http://127.0.0.1:5555/", json.dumps({"1": "2"}))
-    # return r.json()
-
     # for test:
     # cdb = [{1:2},{2:3}]
     cdb = utils.DatabaseConnection().get_db(name)
