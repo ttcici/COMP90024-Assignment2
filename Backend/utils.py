@@ -14,8 +14,8 @@ class DatabaseConnection:
     def __init__(self):
         self.server = couchdb.Database(config.database_url)
 
-    def get_db(self):
-        return self.server[config.database_name]
+    def get_db(self, database_name):
+        return self.server[database_name]
 
 # Map Reduce
 # class MapReduce:
