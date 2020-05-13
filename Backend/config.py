@@ -5,7 +5,8 @@ consumer_key = "be5MWgU3xxhxL3yXBW5P84vtL"
 consumer_secret = "7KLLsiXLsR71arTnBwQNc14EDaE7UZrpsepINb4Q8UauLOjWb8"
 
 # Database
-database_url = '172.26.0.0'
+# TODO: confirm the database address
+database_url = '172.26.0.0:3000'
 
 # Tweet retrieve
 query = ['COVID', 'Trump']
