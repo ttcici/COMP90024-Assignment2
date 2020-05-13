@@ -7,6 +7,7 @@ consumer_secret = "7KLLsiXLsR71arTnBwQNc14EDaE7UZrpsepINb4Q8UauLOjWb8"
 # Database
 # TODO: confirm the database address
 database_url = '172.26.0.0:3000'
+database_name = 'Twitters'
 
 # Tweet retrieve
 query = ['COVID', 'Trump']
