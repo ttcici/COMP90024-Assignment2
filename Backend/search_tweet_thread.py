@@ -2,6 +2,7 @@
 from tweepy import API
 from threading import Thread
 
+
 class Get(Thread):
     def __init__(self, auth, query, couchdb, total_number):
         super().__init__()
