@@ -7,6 +7,7 @@
 from flask import Flask, jsonify
 import utils
 import config
+import couchdb
 
 app = Flask(__name__)
 
@@ -17,10 +18,12 @@ def get_by_name(name):
     # for test:
     # cdb = [{1:2},{2:3}]
     cdb = utils.DatabaseConnection().get_db(name)
-    response = {'name': name, 'data': []}
+    response = {'name': name, 'msg': None, 'data': []}
 
     for doc in cdb:
         response['data'].append(doc)
+    response['msg'] = 'success'
+
     return jsonify(response)
 
 
