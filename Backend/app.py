@@ -12,16 +12,17 @@ import couchdb
 app = Flask(__name__)
 
 
-# Get doc from database by name
-@app.route('/<string:name>', methods=['GET'])
-def get_by_name(name):
+# Get doc from database by document name
+@app.route('/<string:document_name>', methods=['GET'])
+def get_by_name(document_name, count):
     # for test:
-    # cdb = [{1:2},{2:3}]
-    cdb = utils.DatabaseConnection().get_db(name)
-    response = {'name': name, 'msg': None, 'data': []}
+    # cdb = [{1:2},{2:3},{3:4}]
+    cdb = utils.DatabaseConnection().get_db(document_name)
+    response = {'name': document_name, 'msg': None, 'data': []}
 
     for doc in cdb:
         response['data'].append(doc)
+
     response['msg'] = 'success'
 
     return jsonify(response)
