@@ -1,4 +1,4 @@
-# This is the python program to run flask as the back-end. Default address: http://127.0.0.1:5000/
+# This is the python program to run flask as the back-end. Default address: http://127.0.0.1:8000/
 # Functionality: Get data from CouchDB as front-end requests, send the data back to front-end.
 # Version: 1.0
 # Last-update: 8/5/2020
