@@ -4,6 +4,15 @@
 172.26.132.149
 172.26.130.158
 
+[local]
+127.0.0.1
+
+[Backend]
+172.26.131.151
+
+[local:vars]
+ansible_connection=local
+
 [COMP90024:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=ubuntu
