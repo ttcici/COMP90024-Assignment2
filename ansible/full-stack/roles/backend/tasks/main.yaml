@@ -1,0 +1,15 @@
+---
+
+- name: build image
+
+  become: yes
+
+  command: sudo docker build -t backend .
+
+
+
+- name: start docker-compose
+
+  become: yes
+
+  command: sudo docker run -p 8000:8000 backend

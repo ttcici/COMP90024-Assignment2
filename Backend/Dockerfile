@@ -9,11 +9,11 @@ ENV PYTHONUNBUFFERED 1
 
 
 
-RUN mkdir /backend
+RUN mkdir /back-end
 
-WORKDIR /backend
+WORKDIR /back-end
 
-ADD . /backend
+ADD . /back-end
 
 RUN pip install -r requirements.txt
 
