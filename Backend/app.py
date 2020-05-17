@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # Get doc from database by document name
 @app.route('/<string:document_name>', methods=['GET'])
-def get_by_name(document_name, count):
+def get_by_name(document_name):
     # for test:
     # cdb = [{1:2},{2:3},{3:4}]
     cdb = utils.DatabaseConnection().get_db(document_name)
@@ -26,6 +26,12 @@ def get_by_name(document_name, count):
     response['msg'] = 'success'
 
     return jsonify(response)
+
+
+# For test
+@app.route('/', methods=['GET'])
+def test():
+    return {"res": "success"}
 
 
 if __name__ == '__main__':
