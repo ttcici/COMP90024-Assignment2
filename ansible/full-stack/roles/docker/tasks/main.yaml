@@ -37,11 +37,11 @@
   systemd:
     daemon_reload: yes
 
-# - name: Restart the Docker Service
-#   become: yes
-#   systemd:
-#     state: restarted
-#     name: 'docker'
+ - name: Restart the Docker Service
+   become: yes
+   systemd:
+     state: restarted
+     name: docker
 
 - name: reboot machine
   become: yes
