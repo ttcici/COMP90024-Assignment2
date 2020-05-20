@@ -13,22 +13,21 @@
     # - role: set-proxy
     # - role: mount-volume
 
-- hosts: COMP90024
-  vars_files:
-    - host_vars/docker.yaml
-  gather_facts: true
+#- hosts: COMP90024
+#  vars_files:
+#    - host_vars/docker.yaml
+#  gather_facts: true
+#
+#  roles:
+#  #   - role: docker-common
+#  #   - role: docker-volume
+#  #   - role: docker-installation
+#    - role: docker-installation
 
-  roles:
-    - role: install-docker
-    
-  #   - role: docker-common
-  #   - role: docker-volume
-  #   - role: docker
-    # - role: install-docker
-
-# - hosts: Backend
-#   vars_files:
-#     - host_vars/docker.yaml
-#   gather_facts: true
-#   roles:
-#     - role: backend
+ - hosts: Backend
+   vars_files:
+     - host_vars/docker.yaml
+   gather_facts: true
+   roles:
+#     - role: clone-repository
+     - role: backend
