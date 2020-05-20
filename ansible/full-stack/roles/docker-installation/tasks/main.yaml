@@ -95,7 +95,7 @@
   become_user: root
   command: apt-get update
 
-- name: Install docker
+- name: Install docker-ce
   tags: 'docker'
   become: yes
   apt:
@@ -110,3 +110,39 @@
   pip:
     name: ['docker-compose']
     state: latest
+
+- name: Install docker
+  tags: 'docker-'
+  become: yes
+  pip:
+    name: ['docker']
+    state: latest
+
+- name: Create directory
+  become: yes
+  file:
+    path: ～/.docker
+    state: directory
+    mode: '755'
+
+- name: Create /.docker/config.json file if not exits
+  become: yes
+  file:
+    path: ~/.docker/config.json
+    state: touch
+
+- name: Create a proxy for container
+  become: yes
+  blockinfile:
+    create: yes
+    path: ~/.docker/config.json
+    block: |
+      {
+          "proxies":{
+              "default":{
+                  "httpProxy":"http://wwwproxy.unimelb.edu.au:8000",
+                  "httpsProxy":"http://wwwproxy.unimelb.edu.au:8000",
+                  "noProxy":"localhost,127.0.0.1,localaddress,172.16.0.0/12,.melbourne.rc.nectar.org.au,.storage.unimelb.edu.au,.cloud.unimelb.edu.au"
+              }
+          }
+      }
