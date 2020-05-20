@@ -1,0 +1,11 @@
+
+- name: Gather facts
+  setup:
+    gather_subset: all
+
+- name: Add server Configuration in instance
+  become: yes
+  lineinfile:
+    path: /etc/environment
+    line: "http_proxy=\"http://wwwproxy.unimelb.edu.au:8000\"\nhttps_proxy=\"http://wwwproxy.unimelb.edu.au:8000\"\nftp_proxy=\"http://wwwproxy.unimelb.edu.au:8000\"\nno_proxy=localhost,127.0.0.1,127.0.1.1,172.17.0.2,172.17.0.3,172.17.0.4,172.17.0.5,ubuntu"
+    state: present
