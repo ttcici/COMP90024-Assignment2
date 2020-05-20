@@ -24,10 +24,17 @@
 #  #   - role: docker-installation
 #    - role: docker-installation
 
- - hosts: Backend
+# - hosts: Backend
+#   vars_files:
+#     - host_vars/docker.yaml
+#   gather_facts: true
+#   roles:
+##     - role: clone-repository
+#     - role: backend
+
+ - hosts: CouchDB
    vars_files:
      - host_vars/docker.yaml
    gather_facts: true
    roles:
-#     - role: clone-repository
-     - role: backend
+     - role: couchDB

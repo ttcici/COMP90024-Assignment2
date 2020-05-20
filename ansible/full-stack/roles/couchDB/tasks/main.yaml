@@ -1,0 +1,14 @@
+---
+- name: stop docker-compose
+  become: yes
+  become_user: root
+  command: docker-compose down --rmi all
+  args:
+    chdir: /home/ubuntu/COMP90024/full-stack
+
+- name: start docker-compose
+  become: yes
+  become_user: root
+  command: docker-compose up --build --force-recreate -d
+  args:
+    chdir: /home/ubuntu/COMP90024/full-stack

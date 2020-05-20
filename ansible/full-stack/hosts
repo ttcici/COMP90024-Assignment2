@@ -18,3 +18,6 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [Backend]
 172.26.131.151
+
+[CouchDB]
+172.26.133.191

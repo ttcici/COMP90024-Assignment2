@@ -43,8 +43,8 @@
   become: yes
   git:
 #    repo: https://ttcici@github.com:/ttcici/COMP90024-Assignment2.git
-    repo: https://git@github.com/Annettex/COMP90024-Assignemt2.git
-#    repo: "https://{{ username }}:{{ password }}@github.com/Annettex/COMP90024-Assignment2.git"
+#    repo: https://git@github.com/Annettex/COMP90024-Assignemt2.git
+    repo: "https://{{ username }}:{{ password }}@github.com/Annettex/COMP90024-Assignment2.git"
     dest: /home/ubuntu/COMP90024
     accept_hostkey: yes
     recursive: no
