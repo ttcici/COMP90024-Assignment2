@@ -1,0 +1,14 @@
+---
+- name: build image
+  become: yes
+  become_user: root
+  command: docker build -t backend .
+  args:
+    chdir: "{{ wkdir_backend }}"
+
+- name: start docker-compose
+  become: yes
+  become_user: root
+  command: docker run --name ansible-test0 -p 8000:8000 -d backend
+  args:
+    chdir: "{{ wkdir_backend }}"

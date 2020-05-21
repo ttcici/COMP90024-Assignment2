@@ -1,0 +1,87 @@
+#version: '3'
+#
+#services:
+#  couch_master:
+#    image: "couchdb:2.3.0"
+#    restart: always
+#    network_mode: host
+#    ports:
+#      - "5984:5984"
+#      - "5986:5986"
+#      - "4369:4369"
+#      - "9100-9200:9100-9200"
+#    volumes:
+#      - .:/couchdb/data
+#
+#    environment:
+#      - COUCHDB_USER=user
+#      - COUCHDB_PASSWORD=pass
+#      - NODENAME=172.26.133.191
+#
+#    container_name: couch_demo
+
+version: "3"
+services:
+  couch_master:
+    image: "couchdb3:2.3.0"
+    hostname: 172.26.130.158
+    restart: always
+    ports:
+      - "5984:5984"
+      - "5986:5986"
+      - "4369:4369"
+      - "9100-9200:9100-9200"
+    links:
+      - couch_slave1
+      - couch_slave2
+    volumes:
+      - ./data/master/data:/opt/couchdb/data
+    environment:
+      - COUCHDB_USER=user
+      - COUCHDB_PASSWORD=pass
+      - NODENAME=172.26.130.158
+    container_name: couch_master
+    networks:
+      couchdb_nw:
+        ipv4_address: 172.26.130.158
+
+  couch_slave1:
+    image: "couchdb3:2.3.0"
+    hostname: 172.26.133.191
+    restart: always
+    ports:
+      - "15984:5984"
+    volumes:
+      - ./data/slave1/data:/opt/couchdb/data
+    environment:
+      - COUCHDB_USER=user
+      - COUCHDB_PASSWORD=pass
+      - NODENAME=172.26.133.191
+    container_name: couch_slave1
+    networks:
+      couchdb_nw:
+        ipv4_address: 172.26.133.191
+
+  couch_slave2:
+    image: "couchdb3:2.3.0"
+    hostname: 172.26.132.149
+    restart: always
+    ports:
+      - "25984:5984"
+    volumes:
+      - ./data/slave2/data:/opt/couchdb/data
+    environment:
+      - COUCHDB_USER=user
+      - COUCHDB_PASSWORD=pass
+      - NODENAME=172.26.132.149
+    container_name: couch_slave2
+    networks:
+      couchdb_nw:
+        ipv4_address: 172.26.132.149
+
+networks:
+  couchdb_nw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.26.0.0/16

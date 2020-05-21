@@ -1,0 +1,16 @@
+version: "3"
+services:
+
+  couch_slave:
+    image: "couchdb:2.3.0"
+    restart: always
+    network_mode: host
+    ports:
+      - "5984:5984"
+    volumes:
+      - /home/ubuntu/couchdb/slave/data:/opt/couchdb/data
+    environment:
+      - COUCHDB_USER=user
+      - COUCHDB_PASSWORD=pass
+      - NODENAME=172.26.133.191
+    container_name: couch_slave1
