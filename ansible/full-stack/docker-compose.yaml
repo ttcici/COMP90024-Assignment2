@@ -23,7 +23,7 @@
 version: "3"
 services:
   couch_master:
-    image: "ibmcom/couchdb3:2.3.0"
+    image: "couchdb3:2.3.0"
     hostname: 172.26.130.158
     restart: always
     ports:
@@ -46,7 +46,7 @@ services:
         ipv4_address: 172.26.130.158
 
   couch_slave1:
-    image: "ibmcom/couchdb3:3.0.0"
+    image: "couchdb3:2.3.0"
     hostname: 172.26.133.191
     restart: always
     ports:
@@ -63,7 +63,7 @@ services:
         ipv4_address: 172.26.133.191
 
   couch_slave2:
-    image: "ibmcom/couchdb3:3.0.0"
+    image: "couchdb3:2.3.0"
     hostname: 172.26.132.149
     restart: always
     ports:
