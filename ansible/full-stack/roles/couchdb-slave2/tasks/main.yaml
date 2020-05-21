@@ -1,0 +1,22 @@
+---
+- name: mkdir the /opt/workspace/slave/data
+  become: yes
+  file:
+    path: /home/ubuntu/couchdb/slave/data
+    state: directory
+    mode: '755'
+    # /opt/workspace/slave/data
+
+- name: stop docker-compose
+  become: yes
+  become_user: root
+  command: docker-compose down --rmi all
+  args:
+    chdir: /home/ubuntu/COMP90024/couchdb/slave2
+
+- name: start docker-compose
+  become: yes
+  become_user: root
+  command: docker-compose up --build --force-recreate -d
+  args:
+    chdir: /home/ubuntu/COMP90024/couchdb/slave2
