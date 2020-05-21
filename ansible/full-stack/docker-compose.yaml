@@ -23,7 +23,7 @@ services:
 #version: "3"
 #services:
 #  couch_master:
-#    image: "ibmcom/couchdb3:3.0.0"
+#    image: "ibmcom/couchdb3:2.3.0"
 #    restart: always
 #    ports:
 #      - "5984:5984"

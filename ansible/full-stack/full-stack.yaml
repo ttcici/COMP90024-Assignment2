@@ -24,27 +24,27 @@
 #  #   - role: docker-installation
 #    - role: docker-installation
 
- - hosts: Git-clone
-   vars_files:
-     - host_vars/docker.yaml
-   gather_facts: true
-   roles:
-     - role: clone-repository
-#     - role: backend
-
- - hosts: CouchDB-master
-   vars_files:
-     - host_vars/docker.yaml
-   gather_facts: true
-   roles:
-     - role: couchDB
-
- - hosts: CouchDB-slave1
-   vars_files:
-     - host_vars/docker.yaml
-   gather_facts: true
-   roles:
-     - role: couchdb-slave1
+# - hosts: Git-clone
+#   vars_files:
+#     - host_vars/docker.yaml
+#   gather_facts: true
+#   roles:
+#     - role: clone-repository
+##     - role: backend
+#
+# - hosts: CouchDB-master
+#   vars_files:
+#     - host_vars/docker.yaml
+#   gather_facts: true
+#   roles:
+#     - role: couchDB
+#
+# - hosts: CouchDB-slave1
+#   vars_files:
+#     - host_vars/docker.yaml
+#   gather_facts: true
+#   roles:
+#     - role: couchdb-slave1
 
  - hosts: CouchDB-slave2
    vars_files:
