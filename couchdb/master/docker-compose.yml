@@ -15,5 +15,5 @@ services:
     environment:
       - COUCHDB_USER=user
       - COUCHDB_PASSWORD=pass
-      - NODENAME=172.26.130.158
+      - NODENAME=172.26.133.141
     container_name: couch_node
