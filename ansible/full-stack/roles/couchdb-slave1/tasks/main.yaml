@@ -1,0 +1,28 @@
+---
+- name: mkdir the /opt/workspace/slave/data
+  become: yes
+  file:
+    path: /home/ubuntu/couchdb/slave/data
+    state: directory
+    mode: '755'
+#
+#- name: copy the docker-compose
+#  become: yes
+#  copy:
+#    src: /home/andy/comp90024/Ansible/couchdb/docker-compose-s1.yml
+#    dest: /home/ubuntu/couchdb/slave/docker-compose.yml
+
+- name: run CouchDB_slave1
+  raw: cd /home/ubuntu/couchdb/slave/; docker-compose up -d
+
+- name: copy the cluster.sh
+  become: yes
+  copy:
+    src: /home/andy/comp90024/Ansible/couchdb/cluster1.sh
+    dest: /home/ubuntu/couchdb/slave/cluster.sh
+
+- name: change the type of cluster.sh
+  raw:  cd /home/ubuntu/couchdb/slave/; sudo dos2unix cluster.sh
+
+- name: run cluster.sh
+  shell: /home/ubuntu/couchdb/slave/cluster.sh
