@@ -1,7 +1,5 @@
 ---
 - name: run cluster-setup.sh
-  become: yes
-  become_user: root
-  command: cluster-setup.sh
+  shell: cluster-setup.sh | cat
   args:
     chdir: /home/ubuntu/COMP90024/ansible/full-stack
