@@ -11,9 +11,9 @@ import config
 app = Flask(__name__)
 
 # Get doc from database by document name
-@app.route('/<string:database_name>', methods=['GET'])
+@app.route('/database/<string:database_name>', methods=['GET'])
 def get_by_name(database_name):
-    cdb = utils.DatabaseConnection().get_db()[database_name]
+    cdb = utils.ServerConnection().get_db()[database_name]
     response = {'name': database_name, 'msg': None, 'data': []}
 
     for doc in cdb:
@@ -23,10 +23,25 @@ def get_by_name(database_name):
 
     return jsonify(response)
 
+# Get doc from database by predefined View
+@app.route('/view/<string:database_name>/<string:view_id>/<string:view_name>/<int:group_level>', methods=['GET'])
+def get_by_view(database_name, view_id, view_name, group_level):
+    cdb = utils.DatabaseConnection().get_db(database_name)
+    view_result = cdb.view(view_id+'/'+view_name, group_level=group_level).rows
+    response = {'name': database_name, 'view': view_id+'/'+view_name, 'msg': None, 'data': []}
+
+    for doc in view_result:
+        response['data'].append(doc)
+
+    response['msg'] = 'success'
+
+    return jsonify(response)
+
 # For connection test
 @app.route('/', methods=['GET'])
 def test():
     return {"res": "success"}
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=config.port)
