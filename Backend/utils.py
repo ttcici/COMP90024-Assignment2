@@ -5,17 +5,16 @@
 import couchdb
 import config
 
-
 # Connect to CouchDB
 class DatabaseConnection:
     # TODO: set CouchDB url & database name
     server = None
 
     def __init__(self):
-        self.server = couchdb.Database(config.database_url)
+        self.server = couchdb.Server(config.database_url)
 
-    def get_db(self, database_name):
-        return self.server[database_name]
+    def get_db(self):
+        return self.server
 
 # Map Reduce
 # class MapReduce:
