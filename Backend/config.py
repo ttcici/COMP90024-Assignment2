@@ -6,11 +6,11 @@ consumer_secret = "7KLLsiXLsR71arTnBwQNc14EDaE7UZrpsepINb4Q8UauLOjWb8"
 
 # Database
 # TODO: confirm the database address
-database_url = '172.26.0.0:3000'
-database_name = 'Twitters'
+database_url = 'http://user:pass@172.26.133.141:5984'
+database_name = ''
 
 # Tweet retrieve
-query = ['COVID', 'Trump']
+query = ['']
 search_number = 5000000
 stream_number = 5000000
 
