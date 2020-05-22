@@ -59,9 +59,9 @@
    roles:
      - role: couchdb-slave2
 
- - hosts: CouchDB-master
-   vars_files:
-     - host_vars/docker.yaml
-   gather_facts: true
-   roles:
-     - role: couchdb-set-cluster
+# - hosts: CouchDB-master
+#   vars_files:
+#     - host_vars/docker.yaml
+#   gather_facts: true
+#   roles:
+#     - role: couchdb-set-cluster

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab4c2097-1fa8-4e43-bb63-c08f1fa5758a" name="Default Changelist" comment="">
+    <list default="true" id="e839f5c5-5839-4333-a605-a3fe09c44de3" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cluster-setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/cluster-setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/full-stack.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/full-stack.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/couchdb-set-cluster/tasks/main.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/couchdb-set-cluster/tasks/main.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unimelb-comp90024-2020-grp-16-openrc.sh" beforeDir="false" afterPath="$PROJECT_DIR$/unimelb-comp90024-2020-grp-16-openrc.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,12 +43,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ab4c2097-1fa8-4e43-bb63-c08f1fa5758a" name="Default Changelist" comment="" />
-      <created>1590139400016</created>
+      <changelist id="e839f5c5-5839-4333-a605-a3fe09c44de3" name="Default Changelist" comment="" />
+      <created>1590070007564</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1590139400016</updated>
-      <workItem from="1590139415558" duration="601000" />
+      <updated>1590070007564</updated>
+      <workItem from="1590070023010" duration="1412000" />
     </task>
     <servers />
   </component>
