@@ -1,0 +1,13 @@
+version: "2"
+services:
+  node:
+    image: "node:8"
+    user: "ubuntu"
+    working_dir: /home/ubuntu/COMP90024/Frontend/vue
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /home/ubuntu/vue/app:/opt/node/app
+    expose:
+      - "8080"
+    command: "npm start"
