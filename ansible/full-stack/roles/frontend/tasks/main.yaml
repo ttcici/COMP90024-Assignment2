@@ -1,6 +1,8 @@
 ---
 - name: pull node
-  shell: docker pull node
+  become: yes
+  become_user: root
+  command: docker pull node
 
 - name: mkdir
   become: yes
