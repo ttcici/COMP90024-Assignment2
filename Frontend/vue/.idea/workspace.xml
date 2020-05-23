@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ade04e88-9cbe-4816-aba0-3dbef91a14c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vue.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ansible/full-stack/roles/frontend/tasks/main.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ansible/full-stack/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ansible/full-stack/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ansible/full-stack/full-stack.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ansible/full-stack/full-stack.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ansible/full-stack/hosts" beforeDir="false" afterPath="$PROJECT_DIR$/../../ansible/full-stack/hosts" afterDir="false" />
-    </list>
+    <list default="true" id="ade04e88-9cbe-4816-aba0-3dbef91a14c6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1590240499428</updated>
       <workItem from="1590240502060" duration="965000" />
+      <workItem from="1590245741952" duration="338000" />
     </task>
     <servers />
   </component>
@@ -101,7 +82,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
