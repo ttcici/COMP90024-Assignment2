@@ -13,6 +13,7 @@ proxy_env:
   no_proxy: localhost,127.0.0.1,localaddress,172.16.0.0/12,.melbourne.rc.nectar.org.au,.storage.unimelb.edu.au,.cloud.unimelb.edu.au
 
 wkdir_backend: /home/ubuntu/COMP90024/Backend/
+wkdir_frontend: /home/ubuntu/COMP90024/Frontend/vue
 
 username: Annettex
 password: yxqh0914
