@@ -16,4 +16,4 @@
   become_user: root
   command: docker-compose up --build --force-recreate -d
   args:
-    chdir: /home/ubuntu/COMP90024/Frontend
+    chdir: /home/ubuntu/COMP90024/Frontend/vue
