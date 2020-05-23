@@ -19,6 +19,9 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 [Backend]
 172.26.132.129
 
+[Frontend]
+172.26.132.129
+
 [Git-clone]
 172.26.132.129
 172.26.133.141

@@ -1,0 +1,17 @@
+---
+- name: pull node
+  shell: docker pull node
+
+- name: mkdir
+  become: yes
+  file:
+    path: /home/ubuntu/vue/app
+    state: directory
+    mode: '755'
+
+- name: start docker-compose
+  become: yes
+  become_user: root
+  command: docker-compose up --build --force-recreate -d
+  args:
+    chdir: /home/ubuntu/COMP90024/Frontend
