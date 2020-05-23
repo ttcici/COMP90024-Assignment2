@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e839f5c5-5839-4333-a605-a3fe09c44de3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/.idea/vue.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/vue/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/roles/frontend/tasks/main.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/full-stack.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/full-stack.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosts" beforeDir="false" afterPath="$PROJECT_DIR$/hosts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/vue/docker-compose.yml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +50,7 @@
       <workItem from="1590070023010" duration="1412000" />
       <workItem from="1590239303395" duration="1065000" />
       <workItem from="1590240416127" duration="679000" />
+      <workItem from="1590245722587" duration="18000" />
     </task>
     <servers />
   </component>
