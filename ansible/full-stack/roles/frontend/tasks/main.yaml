@@ -1,0 +1,19 @@
+---
+- name: pull node
+  become: yes
+  become_user: root
+  command: docker pull node
+
+- name: build image
+  become: yes
+  become_user: root
+  command: docker build -t frontend .
+  args:
+    chdir: "{{ wkdir_frontend }}"
+
+- name: start docker-compose
+  become: yes
+  become_user: root
+  command: docker run --name frontend-test -p 8080:8080 -d frontend
+  args:
+    chdir: "{{ wkdir_frontend }}"
