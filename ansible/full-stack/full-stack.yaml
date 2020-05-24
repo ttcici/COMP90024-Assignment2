@@ -24,7 +24,7 @@
 #  #   - role: docker-installation
 #    - role: docker-installation
 
- - hosts: Frontend
+ - hosts: Web-server
    vars_files:
      - host_vars/docker.yaml
    gather_facts: true
@@ -38,7 +38,7 @@
 #   roles:
 #     - role: backend
 
- - hosts: Frontend
+ - hosts: Web-server
    vars_files:
      - host_vars/docker.yaml
    gather_facts: true
