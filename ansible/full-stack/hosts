@@ -1,14 +1,5 @@
-[local]
-127.0.0.1
-
-[local:vars]
-ansible_connection=local
-
 [COMP90024]
-172.26.132.129
-172.26.133.141
-172.26.133.82
-172.26.134.37
+
 
 [COMP90024:vars]
 ansible_python_interpreter=/usr/bin/python3
@@ -16,14 +7,14 @@ ansible_user=ubuntu
 ansible_ssh_private_key_file=Assign2-Annette.pem
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
-[Backend]
-172.26.132.129
-
 [Git-clone]
 172.26.132.129
 172.26.133.141
 172.26.133.82
 172.26.134.37
+
+[Backend]
+172.26.132.129
 
 [CouchDB-master]
 172.26.133.141

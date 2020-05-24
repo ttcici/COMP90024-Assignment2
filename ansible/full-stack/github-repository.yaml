@@ -1,0 +1,7 @@
+ - hosts: Git-clone
+   vars_files:
+     - host_vars/docker.yaml
+   gather_facts: true
+
+   role:
+     - role: clone-repository

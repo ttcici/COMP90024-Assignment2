@@ -46,12 +46,6 @@ instances:
     volumes: ['instance-vol-3-1', 'instance-vol-3-2']
   - name: instance-4
     volumes: ['instance-vol-4-1', 'instance-vol-4-2']
-    
-# Volume-mount
-# volumes_mount:
-#   - device: /dev/vdb
-#     mountpoint: /mnt/demo
-    
 
 instance_image: 45225edb-66d8-4fd0-bf41-132a31a18166
 instance_key_name: Assign2-Annette
