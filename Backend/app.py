@@ -39,65 +39,6 @@ def get_by_view(database_name, view_id, view_name, group_level):
 
     return jsonify(response)
 
-# Get city profiles
-@app.route('/geo', methods=['GET'])
-def get_by_suburb():
-    response = {"data": []}
-
-    scdb = utils.DatabaseConnection().get_db('city_profile')
-    cdb = utils.DatabaseConnection().get_db('analysis')
-    bw_result = cdb.view('bw_view/bw_counts', group_level=1).rows
-    cf_result = cdb.view('cf_view/cf_counts', group_level=1).rows
-    sp_result = cdb.view('sp_view/sp_counts', group_level=1).rows
-
-    tbw = 0
-    tcf = 0
-    tsp = 0
-
-    i = 0
-    for s in scdb:
-        for bw in bw_result:
-            if bw['key'] == s:
-                tbw = bw['value']
-                break
-        for cf in cf_result:
-            if cf['key'] == s:
-                tcf = cf['value']
-                break
-        for sp in sp_result:
-            if sp['key'] == s:
-                tsp = sp['value']
-                break
-
-        geo = scdb[s]['profile']['boundaries']
-        num_grate_satisfcation = scdb[s]['profile']['num_grate_satisfcation']
-        population_survey = scdb[s]['profile']['population_survey']
-        poverty_rate = scdb[s]['profile']['poverty_rate']
-        houshold_median_income = scdb[s]['profile']['houshold_median_income']
-
-        response['data'].append(
-            {"type": "FeatureCollection", "features": [{
-                "type": "Feature",
-                "geometry": {
-                    "type": "MultiPolygon",
-                    "coordinates": geo},
-                "properties": {
-                    "suburb": "BRUNSWICK",
-                    "bw_total": tbw,
-                    "sp_total": tcf,
-                    "cf_total": tsp,
-                    "num_grate_satisfcation": num_grate_satisfcation,
-                    "population_survey": population_survey,
-                    "poverty_rate": poverty_rate,
-                    "houshold_median_income": houshold_median_income}
-            }]}
-        )
-
-        i += 1
-        print(str(i)+' finished..')
-
-    return jsonify(response)
-
 
 # For connection test
 @app.route('/', methods=['GET'])
