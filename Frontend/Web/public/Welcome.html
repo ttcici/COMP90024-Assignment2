@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>COMP 90024</title>
+  <title>COMP 90024 Team16</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,8 +38,8 @@
           <div class="masthead-content text-white py-5 py-md-0">
             <h1 class="mb-3" font-weight: bold; data-wow-delay="0.4s">Group 16</h1>
             <h2 class="mb-3" font-weight: bold; data-wow-delay="0.4s">Melbourne Twitter Data  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Analysis </h2>
-            <p class="wow fadeInUp white-color" font-weight: bold; data-wow-delay="0.6s">Group Member: Qingmeng XU <br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspCheng QIAN <br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspLiao ZHONG<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspTingqian WANG<br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspZongcheng DU</p>
-            <button class="btn btn-secondary" type="button" onclick="{location.href='analysis.html'}">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <font size="5px"> <strong> Data Visualization! </strong></font> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </button>
+            <p class="wow fadeInUp white-color" font-weight: bold; data-wow-delay="0.6s">Group Member: Qingmeng XU <br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspCheng QIAN <br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspZhong LIAO<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspTingqian WANG<br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspZongcheng DU</p>
+            <button class="btn btn-secondary" type="button" onclick="{location.href='analysis/analysis.html'}">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <font size="5px"> <strong> Data Visualization! </strong></font> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </button>
               </div>
             </div>
           </div>
@@ -76,6 +76,24 @@
   <!-- Custom scripts for this template -->
   <script src="js/coming-soon.min.js"></script>
 
+  <script type="text/javascript">
+            $("#start").click(function(){
+                    $(".navbar").css({visibility:"hidden"})
+                    var h=$(window).scrollTop();
+                        $("html,body").animate({ scrollTop: h+720 }, 800);
+                                });
+            $("#top").click(function(){
+                $(".navbar").css({visibility:"visible"});
+                var h=$(window).scrollTop();
+                $("html,body").animate({ scrollTop: 0 }, 800);
+            });
+            $("#showChart").click(function(){
+                var h=$(window).scrollTop();
+                $("html,body").animate({ scrollTop: h+1500 }, 800);
+                $(".navbar").css({visibility:"hidden"});
+            });
+        </script>
+        
 </body>
 
 </html>
