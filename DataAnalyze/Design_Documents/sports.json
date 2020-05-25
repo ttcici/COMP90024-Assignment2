@@ -1,0 +1,11 @@
+{
+  "_id": "_design/bw_view",
+  "_rev": "5-56e51c7f1037db8af1210c17a684e4ab",
+  "views": {
+    "bw_counts": {
+      "reduce": "_count",
+      "map": "function (doc) {\n  if (doc.sp_exist == 1){\n    emit(doc.suburb, {\"bound\":doc.boundaries, \n    \"num_satis\":doc.num_grate_satisfcation,\n    \"pop_survey\":doc.population_survey,\n    \"poverty_rate\":doc.poverty_rate,\n    \"median_income\": doc.houshold_median_income\n    });\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}
