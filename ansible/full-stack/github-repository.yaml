@@ -3,5 +3,5 @@
      - host_vars/docker.yaml
    gather_facts: true
 
-   role:
+   roles:
      - role: clone-repository
