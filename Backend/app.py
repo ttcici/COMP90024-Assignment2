@@ -37,6 +37,11 @@ def get_by_view(database_name, view_id, view_name, group_level):
 
     return jsonify(response)
 
+@app.route('/geo/<string:suburb_name>', methods=['GET'])
+def get_by_suburb(suburb_name):
+    cdb = utils.DatabaseConnection().get_db('analysis')
+
+
 # For connection test
 @app.route('/', methods=['GET'])
 def test():
