@@ -5,6 +5,11 @@ volumes_mount:
   - device: /dev/vdc
     mountpoint: /data
 
+couchdb_nodes:
+  - name: master
+  - name: slave1
+  - name: slave2
+
 wkdir_backend: /home/ubuntu/COMP90024/Backend/
 wkdir_frontend: /home/ubuntu/COMP90024/Frontend/Web
 
