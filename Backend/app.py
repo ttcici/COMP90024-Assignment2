@@ -10,6 +10,7 @@ import config
 
 app = Flask(__name__)
 
+
 # Get doc from database by document name
 @app.route('/database/<string:database_name>', methods=['GET'])
 def get_by_name(database_name):
@@ -23,12 +24,13 @@ def get_by_name(database_name):
 
     return jsonify(response)
 
+
 # Get doc from database by predefined View
 @app.route('/view/<string:database_name>/<string:view_id>/<string:view_name>/<int:group_level>', methods=['GET'])
 def get_by_view(database_name, view_id, view_name, group_level):
     cdb = utils.DatabaseConnection().get_db(database_name)
-    view_result = cdb.view(view_id+'/'+view_name, group_level=group_level).rows
-    response = {'name': database_name, 'view': view_id+'/'+view_name, 'msg': None, 'data': []}
+    view_result = cdb.view(view_id + '/' + view_name, group_level=group_level).rows
+    response = {'name': database_name, 'view': view_id + '/' + view_name, 'msg': None, 'data': []}
 
     for doc in view_result:
         response['data'].append(doc)
@@ -36,10 +38,6 @@ def get_by_view(database_name, view_id, view_name, group_level):
     response['msg'] = 'success'
 
     return jsonify(response)
-
-@app.route('/geo/<string:suburb_name>', methods=['GET'])
-def get_by_suburb(suburb_name):
-    cdb = utils.DatabaseConnection().get_db('analysis')
 
 
 # For connection test
