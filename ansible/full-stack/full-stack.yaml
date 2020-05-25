@@ -30,19 +30,7 @@
    gather_facts: true
    roles:
      - role: clone-repository
-
-# - hosts: Backend
-#   vars_files:
-#     - host_vars/docker.yaml
-#   gather_facts: true
-#   roles:
 #     - role: backend
-
- - hosts: Web-server
-   vars_files:
-     - host_vars/docker.yaml
-   gather_facts: true
-   roles:
      - role: frontend
 
 # - hosts: CouchDB-master

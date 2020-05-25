@@ -11,7 +11,7 @@
   args:
     chdir: "{{ wkdir_frontend }}"
 
-- name: start docker-compose
+- name: start docker
   become: yes
   become_user: root
   command: docker run --name frontend-test -p 8080:8080 -d frontend
