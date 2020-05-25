@@ -6,7 +6,7 @@ volumes_mount:
     mountpoint: /data
 
 wkdir_backend: /home/ubuntu/COMP90024/Backend/
-wkdir_frontend: /home/ubuntu/COMP90024/Frontend/vue
+wkdir_frontend: /home/ubuntu/COMP90024/Frontend/Web
 
 username: Annettex
 password: yxqh0914
