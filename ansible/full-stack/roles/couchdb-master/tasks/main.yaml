@@ -1,45 +1,21 @@
 ---
-#- name: Make the directory /opt/workspace/master/data
-#  become: yes
-#  file:
-#    path: /home/ubuntu/couchdb/master/data
-#    state: directory
-#    mode: '755'
-#
-#- name: Stop existing docker containers
-#  become: yes
-#  become_user: root
-#  command: docker-compose down --rmi all
-#  args:
-#    chdir: /home/ubuntu/COMP90024/couchdb/master
-#
-#- name: Start the docker containers using docker-compose
-#  become: yes
-#  become_user: root
-#  command: docker-compose up --build --force-recreate -d
-#  args:
-#    chdir: /home/ubuntu/COMP90024/couchdb/master
-
-- name: Make the working directory
+- name: Make the directory /opt/workspace/master/data
   become: yes
   file:
-    path: "/home/ubuntu/couchdb/{{ item.name }}/data"
+    path: /home/ubuntu/couchdb/master/data
     state: directory
     mode: '755'
-  loop: "{{ couchdb_nodes }}"
 
 - name: Stop existing docker containers
   become: yes
   become_user: root
   command: docker-compose down --rmi all
   args:
-    chdir: "/home/ubuntu/COMP90024/couchdb/{{ item.name }}"
-  loop: "{{ couchdb_nodes }}"
+    chdir: /home/ubuntu/COMP90024/couchdb/master
 
 - name: Start the docker containers using docker-compose
   become: yes
   become_user: root
   command: docker-compose up --build --force-recreate -d
   args:
-    chdir: "/home/ubuntu/COMP90024/couchdb/{{ item.name }}"
-  loop: "{{ couchdb_nodes }}"
+    chdir: /home/ubuntu/COMP90024/couchdb/master
