@@ -9,7 +9,7 @@
 - name: Clone the repository of team 16
   become: yes
   git:
-    repo: "https://{{ username }}:{{ password }}@github.com/Annettex/COMP90024-Assignment2.git"
+    repo: "https://https://github.com/ttcici/COMP90024-Assignment2.git"
     dest: /home/ubuntu/COMP90024
     accept_hostkey: yes
     recursive: no
