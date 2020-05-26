@@ -1,9 +1,11 @@
- - hosts: Web-server
-   vars_files:
-     - host_vars/docker.yaml
-   gather_facts: true
-   roles:
-     - role: backend
+#Team 16: COMP90024-Assignment2
+#Team Members:
+#Qingmeng Xu, 969413
+#Tingqian Wang, 1043988
+#Zhong Liao, 1056020
+#Cheng Qian, 962539
+#Zongcheng Du, 1096319
+
 
  - hosts: CouchDB-master
    vars_files:
@@ -33,16 +35,10 @@
    roles:
      - role: couchdb-set-cluster
 
-# - hosts: Frontend
-#   vars_files:
-#     - host_vars/docker.yaml
-#   gather_facts: true
-#   roles:
-#     - role: clone-repository
-
  - hosts: Web-server
    vars_files:
      - host_vars/docker.yaml
    gather_facts: true
    roles:
+     - role: backend
      - role: frontend

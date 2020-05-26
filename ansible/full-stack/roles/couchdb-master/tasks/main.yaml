@@ -1,19 +1,19 @@
 ---
-- name: mkdir the /opt/workspace/master/data
+- name: Make the directory /opt/workspace/master/data
   become: yes
   file:
     path: /home/ubuntu/couchdb/master/data
     state: directory
     mode: '755'
 
-- name: stop docker-compose
+- name: Stop existing docker containers
   become: yes
   become_user: root
   command: docker-compose down --rmi all
   args:
     chdir: /home/ubuntu/COMP90024/couchdb/master
 
-- name: start docker-compose
+- name: Start the docker containers using docker-compose
   become: yes
   become_user: root
   command: docker-compose up --build --force-recreate -d

@@ -121,21 +121,21 @@
 - name: Create directory
   become: yes
   file:
-    path: ～/.docker
+    path: /home/ubuntu/.docker
     state: directory
     mode: '755'
 
 - name: Create /.docker/config.json file if not exits
   become: yes
   file:
-    path: ~/.docker/config.json
+    path: /home/ubuntu/.docker/config.json
     state: touch
 
-- name: Create a proxy for container
+- name: Create a proxy for the container
   become: yes
   blockinfile:
     create: yes
-    path: ~/.docker/config.json
+    path: /home/ubuntu/.docker/config.json
     block: |
       {
           "proxies":{

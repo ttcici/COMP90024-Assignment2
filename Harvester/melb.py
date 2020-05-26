@@ -5,10 +5,10 @@ from shapely.geometry.polygon import Polygon
 
 # Open the geojson file of VIC Suburb/Locality Boundaries
 # https://data.gov.au/dataset/ds-dga-af33dd8c-0534-4e18-9245-fc64440f742e/details
-boundary = json.load(open('/Users/leo/Desktop/assignment2/vicgeo.json'))
+boundary = json.load(open('/home/ubuntu/leo/vicgeo.json'))
 
 # Create CouchDB dataset 
-server = couchdb.Server("http://user:pass@172.26.130.158:5984")
+server = couchdb.Server("http://user:pass@172.26.133.141:5984")
 #server = couchdb.Server("http://user:pass@localhost:5984")
 #server.delete('temps')
 if 'melb' in server:   
@@ -16,8 +16,11 @@ if 'melb' in server:
 else:
     db = server.create('melb') 
     
-with open('/Users/leo/Desktop/assignment2/twitter-melb.json', 'r', encoding = 'utf-8') as file:
+with open('/home/ubuntu/leo/twitter-melb.json', 'r', encoding = 'utf-8') as file:
+    num = 0
     for line in file:
+        num += 1
+        print(num)
         line = line.replace('\n','').replace('\r','')
         try:
             if line[-1] == ',':

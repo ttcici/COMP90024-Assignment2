@@ -6,48 +6,12 @@
     state: directory
     mode: '755'
 
-#- name: Add ssh key
-#  become: yes
-#  copy:
-#    src: /Users/annettex/Desktop/full-stack/Assign2-Annette.pem
-#    dest: /home/ubuntu/.ssh/GitHub
-#    owner: ubuntu
-#    group: ubuntu
-#    mode: '600'
-
-#
-#- name: Creat SSH config
-#  become: yes
-#  become_user: root
-#  command: cat >~/.ssh/config <<EOL
-#
-#    Host Annettex/COMP90024-Assignment2.git
-#    Hostname github.com
-#    User git
-#    IdentityFile ~/.ssh/remote-git-clone
-#
-#    EOL
-
-#- name: Create SSH config
-#  become: yes
-#  blockinfile:
-#    create: yes
-#    path: /home/ubuntu/.ssh/config
-#    block: |
-#      Host Annettex/COMP90024-Assignment2.git
-#      Hostname github.com
-#      User git
-#      IdentityFile /home/ubuntu/.ssh/GitHub/Assign2-Annette.pem
-
 - name: Clone the repository of team 16
   become: yes
   git:
-#    repo: https://ttcici@github.com:/ttcici/COMP90024-Assignment2.git
-#    repo: https://git@github.com/Annettex/COMP90024-Assignemt2.git
-    repo: "https://{{ username }}:{{ password }}@github.com/Annettex/COMP90024-Assignment2.git"
+    repo: "https://https://github.com/ttcici/COMP90024-Assignment2.git"
     dest: /home/ubuntu/COMP90024
     accept_hostkey: yes
     recursive: no
     force: yes
-#    key_file: /home/ubuntu/.ssh/remote-git-clone
     key_file: /home/ubuntu/.ssh/GitHub/Assign2-Annette.pem
